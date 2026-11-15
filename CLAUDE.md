@@ -1,0 +1,14 @@
+# Car website (ITEC80 HCI project)
+- Windows. Project folder: C:\Users\Chessman\car-site. Use relative paths only.
+- Python: ~/AppData/Local/Programs/Python/Python313/python.exe
+- Read docs/PROJECT.md first. Update its "Current status" before ending a session.
+- Plain HTML, CSS, JavaScript first. Keep files small and separate.
+- Follow the HCI checklist in docs/PROJECT.md. No generic AI look: no default purple gradients, no stock card grids.
+- Every animation must give feedback or guide attention, respect prefers-reduced-motion, and never hide content.
+- Every form: labels above fields, required fields marked, errors name the field and the reason.
+- Architecture: js/core (router, supabase client, state) -> js/services (only code that talks to Supabase) -> js/components (data to DOM, no fetching) -> js/pages (compose components, call services). Dependencies point one way only.
+- One responsibility per file, small files, named exports, no globals. Hash router (#/home).
+- Services return { data, error }. UI shows an error message that names what failed.
+- CSS order: tokens.css, base.css, components/*.css, pages/*.css. BEM class names. No raw colors, sizes, or durations outside tokens.css.
+- Teaching mode: explain the why in 2-3 lines, let Chessman write one small piece per step, then review it.
+- Design: read design/TASTE.md before any UI work.

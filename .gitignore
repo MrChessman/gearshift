@@ -1,0 +1,13 @@
+# secrets and local config
+.env
+.env.*
+.claude/settings.local.json
+
+# dependencies and build output
+node_modules/
+dist/
+
+# editor and OS noise
+.vscode/
+Thumbs.db
+*.log

@@ -1,0 +1,52 @@
+:root {
+    /*Primitives*/
+
+    --maroon-900: #2B0808;
+    --maroon-700: #4A1212;
+    --gray-300: #CCCCCC;
+    --white: #FFFFFF;
+    --red-600: #C62828;
+    --red-700: #A81F1F;
+
+    /*Roles*/
+    --color-page: var(--gray-300);
+    --color-surface: var(--maroon-900);
+    --color-surface-raised: var(--maroon-700);
+    --color-text-on-surface: var(--white);
+    --color-text-on-page: var(--maroon-900);
+    --color-action: var(--red-600);
+    --color-action-hover: var(--red-700);
+
+    /*Spacings*/
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-8: 3rem;
+
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-pill: 999px;
+
+    /* Type sizes */
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.75rem;
+    --text-2xl: 2.5rem;
+
+    /* Motion */
+    --dur-fast: 120ms;
+    --dur-base: 220ms;
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --dur-fast: 0ms;
+        --dur-base: 0ms;
+    }
+}
