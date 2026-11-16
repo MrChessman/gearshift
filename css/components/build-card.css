@@ -1,0 +1,89 @@
+/* Build card: one car build shown on the home feed */
+
+.build-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    color: var(--color-text-on-surface);
+    /* TODO token: --border-width */
+    border: 2px solid var(--white);
+    border-radius: var(--radius-md);
+}
+
+.build-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+}
+
+.build-card__user {
+    font-family: "Carlito", sans-serif;
+    font-size: var(--text-base);
+    font-weight: 700;
+}
+
+.build-card__heart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text-on-surface);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out);
+}
+
+.build-card__heart:hover {
+    background: var(--color-surface-raised);
+}
+
+.build-card__heart[aria-pressed="true"] .build-card__heart-icon {
+    fill: var(--color-action);
+}
+
+.build-card__heart:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
+
+.build-card__photo {
+    aspect-ratio: 4 / 3;
+    background: var(--color-surface-raised);
+}
+
+.build-card__title {
+    font-family: "Anton", sans-serif;
+    font-size: var(--text-lg);
+    color: var(--color-text-on-surface);
+    margin: 0;
+    padding: var(--space-2) var(--space-3) 0;
+}
+
+.build-card__link {
+    display: block;
+    margin: var(--space-2) var(--space-3) var(--space-3);
+    padding: var(--space-3);
+    font-family: "Carlito", sans-serif;
+    font-size: var(--text-base);
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-text-on-surface);
+    background: var(--color-action);
+    border-radius: var(--radius-sm);
+    transition: background var(--dur-fast) var(--ease-out);
+}
+
+.build-card__link:hover {
+    background: var(--color-action-hover);
+}
+
+.build-card__link:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
