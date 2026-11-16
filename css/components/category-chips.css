@@ -1,0 +1,58 @@
+.category-heading {
+    font-family: "Anton", sans-serif;
+    font-size: var(--text-lg);
+    color: var(--color-text-on-page);
+    text-align: center;
+    margin: var(--space-4) 0 var(--space-2);
+}
+
+.category-chips-container {
+    display: flex;
+    gap: var(--space-3);
+    overflow-x: auto;
+    padding: var(--space-2) var(--space-4) var(--space-4);
+    scrollbar-width: none;
+}
+
+.category-chips-container::-webkit-scrollbar {
+    display: none;
+}
+
+.category-chip {
+    flex: none;
+    font-family: "Anton", sans-serif;
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    color: var(--color-text-on-surface);
+    background: var(--color-surface);
+    border: 0;
+    border-radius: var(--radius-sm);
+    padding: var(--space-3) var(--space-4);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out);
+}
+
+.category-chip:hover {
+    background: var(--color-surface-raised);
+}
+
+.category-chip[aria-pressed="true"] {
+    background: var(--color-action);
+}
+
+.category-chip[aria-pressed="true"]:hover {
+    background: var(--color-action-hover);
+}
+
+.category-chip:focus-visible {
+    outline: 2px solid var(--color-text-on-page);
+    outline-offset: 2px;
+}
+
+.category-chip:first-child {
+    margin-left: auto;
+}
+
+.category-chip:last-child {
+    margin-right: auto;
+}
