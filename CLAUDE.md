@@ -21,3 +21,4 @@
 - Change only what the request needs. Match the existing style. Mention unrelated problems, don't fix them.
 - Remove only the leftovers your own change created.
 - For multi-step work, state a short plan with a check for each step, then verify each one.
+- Read design/TASTE.md before any UI work. Where it conflicts with the Figma, TASTE.md wins.
