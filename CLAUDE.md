@@ -12,3 +12,12 @@
 - CSS order: tokens.css, base.css, components/*.css, pages/*.css. BEM class names. No raw colors, sizes, or durations outside tokens.css.
 - Teaching mode: explain the why in 2-3 lines, let Chessman write one small piece per step, then review it.
 - Design: read design/TASTE.md before any UI work.
+
+## Behavior
+- If unsure, say "not sure". Never guess. If a request has more than one meaning, ask before picking.
+- Use only CSS variable names that exist in css/tokens.css. Never invent one.
+- In plan mode, or when told not to edit, do not write or change any file.
+- Do only what was asked. No extra features, no abstractions for single-use code.
+- Change only what the request needs. Match the existing style. Mention unrelated problems, don't fix them.
+- Remove only the leftovers your own change created.
+- For multi-step work, state a short plan with a check for each step, then verify each one.
