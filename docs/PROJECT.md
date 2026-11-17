@@ -49,10 +49,18 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - Look: dark maroon (#2B0808) background, light gray panels, white text, cards with a white border. Fonts: Anton (headings), Carlito (logo and body). All values live in css/tokens.css.
 
 ## Current status
-- Slices 1-3 done: header, category chips, one build card (static HTML/CSS only).
-- Slice 4 done: home grid, 6 build cards, 2-column grid, centered container (max-width via --container-max).
-- Slice 5 done: bottom nav, fixed, 5 items with icon and text label; Garage active (aria-current="page"); .page-content reserves room so the nav does not cover the last cards.
-- Next: Home polish (fonts, card layout, motion, HCI review). The Home shell is complete.
+- Home shell done and polished: header, category chips, build cards with real photos (3:2), 2-column grid in a centered container, bottom nav with labels. Fonts: Anton (headings, chips, card titles, weight 400), Carlito (body, italic logo). Motion: staggered card reveal, hover and press feedback, reduced motion respected (CSS only). Chips and hearts do not toggle yet.
+- Tooling: OpenCode with GLM-5.3-Flash Free, /task command (.opencode/commands/task.md), skill frontend-design. Copilot writes prompts and reviews screenshots when Claude is out.
+- Open items: Categories heading is still selectable; chip selected-state design to revisit; car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
+- Next: heading user-select fix, chip and heart toggles (JS), Web Design Guidelines audit (after GitHub check), login page, Supabase.
+
+## Log
+- 2026-11-17 | header, chips, card, grid | 272fb99, 62fac39
+- 2026-11-17 | design rules, frontend-design skill, agents pointer | 40d2992, 7a982e5, 765188a
+- 2026-11-17 | bottom nav | 716dcb9
+- 2026-11-17 | fonts and card polish, /task command | 389e036, 51fa3b8
+- 2026-11-17 | real car photos (placeholders) | ff5bc88
+- 2026-11-17 | card and button motion | e6c8581
 
 ## Open questions for the friend
 - English or Taglish text?
