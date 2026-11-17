@@ -50,8 +50,9 @@ Still missing in the Figma: Build detail page, brand page, search page.
 
 ## Current status
 - Slices 1-3 done: header, category chips, one build card (static HTML/CSS only).
-- Slice 4 done: home grid — 6 build cards, 2-column grid, centered container (max-width 64rem, `/* TODO token: --container-max */` in css/pages/home.css). Not committed.
-- Next: slice 5, bottom nav (css/components/bottom-nav.css is linked in index.html but does not exist yet).
+- Slice 4 done: home grid, 6 build cards, 2-column grid, centered container (max-width via --container-max).
+- Slice 5 done: bottom nav, fixed, 5 items with icon and text label; Garage active (aria-current="page"); .page-content reserves room so the nav does not cover the last cards.
+- Next: Home polish (fonts, card layout, motion, HCI review). The Home shell is complete.
 
 ## Open questions for the friend
 - English or Taglish text?

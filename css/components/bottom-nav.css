@@ -1,0 +1,61 @@
+/* Bottom nav: fixed primary navigation, icon + visible text label per item */
+
+/* The fixed nav overlays the page bottom, so reserve room for it here */
+.page-content {
+    padding-bottom: calc(var(--space-8) + var(--space-8));
+}
+
+.bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: var(--color-surface);
+    padding: var(--space-2) var(--space-2) calc(var(--space-2) + env(safe-area-inset-bottom));
+}
+
+.bottom-nav__items {
+    display: flex;
+    max-width: var(--container-max);
+    margin-inline: auto;
+}
+
+.bottom-nav__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1);
+    min-height: 44px;
+    font-family: "Carlito", sans-serif;
+    text-align: center;
+    text-decoration: none;
+    color: var(--gray-300); /* TODO token: --color-text-muted */
+    /* TODO token: --border-width */
+    border-top: 3px solid transparent;
+    transition:
+        background var(--dur-fast) var(--ease-out),
+        color var(--dur-fast) var(--ease-out);
+}
+
+.bottom-nav__label {
+    font-size: var(--text-sm);
+    font-weight: 700;
+}
+
+.bottom-nav__item:hover {
+    background: var(--color-surface-raised);
+}
+
+/* Current page: full white text/icon plus an accent bar, never faded */
+.bottom-nav__item[aria-current="page"] {
+    color: var(--color-text-on-surface);
+    border-top-color: var(--color-action);
+}
+
+.bottom-nav__item:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
