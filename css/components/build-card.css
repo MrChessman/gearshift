@@ -11,6 +11,7 @@
     /* Clips the photo zoom at the card edges so it never paints over the border */
     overflow: hidden;
     transition: transform var(--dur-base) var(--ease-out);
+    user-select: none;
 }
 
 .build-card__top {
