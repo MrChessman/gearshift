@@ -51,8 +51,8 @@ Still missing in the Figma: Build detail page, brand page, search page.
 ## Current status
 - Home shell done and polished: header, category chips, build cards with real photos (3:2), 2-column grid in a centered container, bottom nav with labels. Fonts: Anton (headings, chips, card titles, weight 400), Carlito (body, italic logo). Motion: staggered card reveal, hover and press feedback, reduced motion respected (CSS only). Chips and hearts do not toggle yet.
 - Tooling: OpenCode with GLM-5.3-Flash Free, /task command (.opencode/commands/task.md), skill frontend-design. Copilot writes prompts and reviews screenshots when Claude is out.
-- Open items: Categories heading is still selectable; chip selected-state design to revisit; car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
-- Next: heading user-select fix, chip and heart toggles (JS), Web Design Guidelines audit (after GitHub check), login page, Supabase.
+- Open items: Chip and heart toggles do not work yet; car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
+- Next: commit the chip design pass, then add chip and heart toggles (JS), Web Design Guidelines audit (after GitHub check), login page, Supabase.
 
 ## Log
 - 2026-11-17 | header, chips, card, grid | 272fb99, 62fac39
@@ -61,6 +61,8 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-17 | fonts and card polish, /task command | 389e036, 51fa3b8
 - 2026-11-17 | real car photos (placeholders) | ff5bc88
 - 2026-11-17 | card and button motion | e6c8581
+- 2026-11-17 | category heading text selection disabled | 12d9b68 | committed one-line CSS fix
+- 2026-11-17 | category chip design: pill shape, 48px token-based tap target, centered labels, overflow cue preserved | pending | CSS verified at 390px and 1280px; not committed yet
 
 ## Open questions for the friend
 - English or Taglish text?

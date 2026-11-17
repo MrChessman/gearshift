@@ -22,6 +22,10 @@
 
 .category-chip {
     flex: none;
+    /* Tap target: the button itself is at least --space-8 (48px) tall, label centered */
+    display: flex;
+    align-items: center;
+    min-height: var(--space-8);
     font-family: var(--font-heading);
     font-weight: 400;
     font-size: var(--text-base);
@@ -29,7 +33,8 @@
     color: var(--color-text-on-surface);
     background: var(--color-surface);
     border: 0;
-    border-radius: var(--radius-sm);
+    /* TASTE.md keeps the Figma's bold pill chips */
+    border-radius: var(--radius-pill);
     padding: var(--space-3) var(--space-4);
     cursor: pointer;
     transition:
