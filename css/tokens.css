@@ -25,7 +25,8 @@
     --space-5: 1.5rem;
     --space-6: 2rem;
     --space-8: 3rem;
-
+    --container-max: 64rem;
+    
     /* Radius */
     --radius-sm: 6px;
     --radius-md: 12px;

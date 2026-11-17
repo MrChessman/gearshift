@@ -48,6 +48,11 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - Proposed, confirm with the friend: purchases, dealership inquiries and test drives are simulated (a record plus a notification, no real payment). Email login first; Google later if time allows; skip Facebook.
 - Look: dark maroon (#2B0808) background, light gray panels, white text, cards with a white border. Fonts: Anton (headings), Carlito (logo and body). All values live in css/tokens.css.
 
+## Current status
+- Slices 1-3 done: header, category chips, one build card (static HTML/CSS only).
+- Slice 4 done: home grid — 6 build cards, 2-column grid, centered container (max-width 64rem, `/* TODO token: --container-max */` in css/pages/home.css). Not committed.
+- Next: slice 5, bottom nav (css/components/bottom-nav.css is linked in index.html but does not exist yet).
+
 ## Open questions for the friend
 - English or Taglish text?
 - Is the simulated purchase and test drive flow OK?
