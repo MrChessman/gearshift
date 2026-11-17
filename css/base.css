@@ -13,9 +13,15 @@ body {
     line-height: 1.5;
 }
 
-/* Buttons use the surrounding font instead of the browser default */
+/* Buttons and links: no browser blue tap flash, so our own press state shows */
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Buttons use the surrounding font instead of the browser default, and double-clicks never select their text */
 button {
     font-family: inherit;
+    user-select: none;
 }
 
 /* Images scale to fit and display as block elements */

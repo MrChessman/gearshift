@@ -37,7 +37,8 @@
     border-top: 3px solid transparent;
     transition:
         background var(--dur-fast) var(--ease-out),
-        color var(--dur-fast) var(--ease-out);
+        color var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
 }
 
 .bottom-nav__label {
@@ -47,6 +48,10 @@
 
 .bottom-nav__item:hover {
     background: var(--color-surface-raised);
+}
+
+.bottom-nav__item:active {
+    transform: scale(0.97);
 }
 
 /* Current page: full white text/icon plus an accent bar, never faded */

@@ -8,6 +8,9 @@
     /* TODO token: --border-width */
     border: 2px solid var(--white);
     border-radius: var(--radius-md);
+    /* Clips the photo zoom at the card edges so it never paints over the border */
+    overflow: hidden;
+    transition: transform var(--dur-base) var(--ease-out);
 }
 
 .build-card__top {
@@ -35,11 +38,17 @@
     background: transparent;
     color: var(--color-text-on-surface);
     cursor: pointer;
-    transition: background var(--dur-fast) var(--ease-out);
+    transition:
+        background var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
 }
 
 .build-card__heart:hover {
     background: var(--color-surface-raised);
+}
+
+.build-card__heart:active {
+    transform: scale(0.97);
 }
 
 .build-card__heart[aria-pressed="true"] .build-card__heart-icon {
@@ -51,6 +60,16 @@
     outline-offset: 2px;
 }
 
+/* The zooming photo paints above normal-flow siblings, so the user row and the
+   title get the card background and a raised paint order. That keeps the zoom
+   looking clipped inside the photo's 3:2 box instead of smudging over them. */
+.build-card__top,
+.build-card__title {
+    position: relative;
+    z-index: 1;
+    background: var(--color-surface);
+}
+
 .build-card__photo {
     /* img fills the card width; height follows the 3:2 box (and the width/height attributes) so nothing jumps while loading */
     width: 100%;
@@ -59,6 +78,7 @@
     object-fit: cover;
     /* maroon shows while the photo loads or if it fails */
     background: var(--color-surface-raised);
+    transition: transform var(--dur-base) var(--ease-out);
 }
 
 .build-card__title {
@@ -87,14 +107,32 @@
     /* TODO token: --min-touch-target */
     min-height: 44px;
     border-radius: var(--radius-pill);
-    transition: background var(--dur-fast) var(--ease-out);
+    transition:
+        background var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
 }
 
 .build-card__link:hover {
     background: var(--color-action-hover);
 }
 
+.build-card__link:active {
+    transform: scale(0.97);
+}
+
 .build-card__link:focus-visible {
     outline: 2px solid var(--color-text-on-surface);
     outline-offset: 2px;
+}
+
+/* Hover: the whole card lifts and the photo zooms slightly inside its 3:2 box.
+   No tokens exist for motion distances or scale factors yet, so 4px and 1.05 are literal values. */
+@media (hover: hover) {
+    .build-card:hover {
+        transform: translateY(-4px);
+    }
+
+    .build-card:hover .build-card__photo {
+        transform: scale(1.05);
+    }
 }

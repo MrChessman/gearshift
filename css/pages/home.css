@@ -8,3 +8,49 @@
     margin-inline: auto;
     padding: var(--space-2) var(--space-4) var(--space-6);
 }
+
+/* Load reveal: each card fades in and rises, one --dur-fast step per card.
+   The backwards fill keeps a card hidden only until its own delay has passed;
+   after the run the card keeps its natural styles, so nothing stays hidden. */
+@keyframes build-card-rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.build-card {
+    animation: build-card-rise var(--dur-base) var(--ease-out) backwards;
+}
+
+.build-card:nth-child(2) {
+    animation-delay: calc(var(--dur-fast) * 1);
+}
+
+.build-card:nth-child(3) {
+    animation-delay: calc(var(--dur-fast) * 2);
+}
+
+.build-card:nth-child(4) {
+    animation-delay: calc(var(--dur-fast) * 3);
+}
+
+.build-card:nth-child(5) {
+    animation-delay: calc(var(--dur-fast) * 4);
+}
+
+.build-card:nth-child(6) {
+    animation-delay: calc(var(--dur-fast) * 5);
+}
+
+/* Animations off: cards are never hidden at all */
+@media (prefers-reduced-motion: reduce) {
+    .build-card {
+        animation: none;
+    }
+}
