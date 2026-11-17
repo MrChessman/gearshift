@@ -49,10 +49,10 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - Look: dark maroon (#2B0808) background, light gray panels, white text, cards with a white border. Fonts: Anton (headings), Carlito (logo and body). All values live in css/tokens.css.
 
 ## Current status
-- Home shell done and polished: header, category chips, build cards with real photos (3:2), 2-column grid in a centered container, bottom nav with labels. Fonts: Anton (headings, chips, card titles, weight 400), Carlito (body, italic logo). Motion: staggered card reveal, hover and press feedback, reduced motion respected (CSS only). Chips and hearts do not toggle yet.
+- Home shell done and polished: header, category chips, build cards with real photos (3:2), 2-column grid in a centered container, bottom nav with labels. Fonts: Anton (headings, chips, card titles, weight 400), Carlito (body, italic logo). Motion: staggered card reveal, hover and press feedback, reduced motion respected. Chips support independent client-side toggles and hearts support client-side save toggles with `aria-pressed`.
 - Tooling: OpenCode with GLM-5.3-Flash Free, /task command (.opencode/commands/task.md), skill frontend-design. Copilot writes prompts and reviews screenshots when Claude is out.
-- Open items: Chip and heart toggles do not work yet; car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
-- Next: commit the chip design pass, then add chip and heart toggles (JS), Web Design Guidelines audit (after GitHub check), login page, Supabase.
+- Open items: Car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
+- Next: review and commit the Home interaction task, then check the Web Design Guidelines skill on GitHub, audit Home, build the login page, and connect Supabase.
 
 ## Log
 - 2026-11-17 | header, chips, card, grid | 272fb99, 62fac39
@@ -63,6 +63,7 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-17 | card and button motion | e6c8581
 - 2026-11-17 | category heading text selection disabled | 12d9b68 | committed one-line CSS fix
 - 2026-11-17 | category chip design: pill shape, 48px token-based tap target, centered labels, overflow cue preserved | pending | CSS verified at 390px and 1280px; not committed yet
+- 2026-11-17 | Home chip and heart toggles | pending | independent multi-select chips, heart labels, keyboard behavior verified at 390px and 1280px; not committed yet
 
 ## Open questions for the friend
 - English or Taglish text?
