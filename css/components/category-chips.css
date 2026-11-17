@@ -1,5 +1,5 @@
 .category-heading {
-    font-family: "Anton", sans-serif;
+    font-family: var(--font-heading);
     font-size: var(--text-lg);
     color: var(--color-text-on-page);
     text-align: center;
@@ -20,7 +20,7 @@
 
 .category-chip {
     flex: none;
-    font-family: "Anton", sans-serif;
+    font-family: var(--font-heading);
     font-size: var(--text-base);
     text-transform: uppercase;
     color: var(--color-text-on-surface);

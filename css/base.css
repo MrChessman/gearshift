@@ -8,8 +8,14 @@ body {
     margin: 0;
     background: var(--color-page);
     color: var(--color-text-on-page);
+    font-family: var(--font-body);
     font-size: var(--text-base);
     line-height: 1.5;
+}
+
+/* Buttons use the surrounding font instead of the browser default */
+button {
+    font-family: inherit;
 }
 
 /* Images scale to fit and display as block elements */

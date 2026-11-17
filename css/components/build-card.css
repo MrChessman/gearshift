@@ -19,7 +19,7 @@
 }
 
 .build-card__user {
-    font-family: "Carlito", sans-serif;
+    font-family: var(--font-body);
     font-size: var(--text-base);
     font-weight: 700;
 }
@@ -52,30 +52,35 @@
 }
 
 .build-card__photo {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 2;
     background: var(--color-surface-raised);
 }
 
 .build-card__title {
-    font-family: "Anton", sans-serif;
+    font-family: var(--font-heading);
     font-size: var(--text-lg);
     color: var(--color-text-on-surface);
     margin: 0;
-    padding: var(--space-2) var(--space-3) 0;
+    padding: var(--space-2) var(--space-3);
 }
 
 .build-card__link {
-    display: block;
-    margin: var(--space-2) var(--space-3) var(--space-3);
-    padding: var(--space-3);
-    font-family: "Carlito", sans-serif;
-    font-size: var(--text-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    /* Pins the pill to the card bottom so all View Build buttons line up across a row */
+    margin: auto var(--space-3) var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
     font-weight: 700;
-    text-align: center;
     text-decoration: none;
     color: var(--color-text-on-surface);
     background: var(--color-action);
-    border-radius: var(--radius-sm);
+    /* TODO token: --min-touch-target */
+    min-height: 44px;
+    border-radius: var(--radius-pill);
     transition: background var(--dur-fast) var(--ease-out);
 }
 
