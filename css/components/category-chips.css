@@ -5,6 +5,7 @@
     color: var(--color-text-on-page);
     text-align: center;
     margin: var(--space-4) 0 var(--space-2);
+    user-select: none;
 }
 
 .category-chips-container {
