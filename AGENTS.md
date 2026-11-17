@@ -1,0 +1,1 @@
+Read CLAUDE.md, design/TASTE.md and docs/PROJECT.md before any work. They are this repo's rules. Follow them exactly.
