@@ -12,7 +12,7 @@ Fonts: only two. Anton for headings, Carlito for everything else.
 - Text on any surface must have readable contrast. No small gray text under 14px. Body text at least --text-base.
 - Cards: whole card is one clear target to the build, 44px minimum for buttons.
 - Do not collect Age. Do not add features that are not in docs/PROJECT.md.
-- Motion only gives feedback (press, hover, selected). Respect reduced motion.
+- Motion is part of the premium feel: load reveals, hover and press feedback, smooth selected states, a small pop on the heart. Use --dur-fast and --dur-base (add a slower token in tokens.css if needed), animate only transform and opacity, respect prefers-reduced-motion, never hide content or delay a task.
 
 ## Layout
 - Mobile first at 390px. Must also look right at 1280px: centered container with a max-width, cards stay 2 columns.
