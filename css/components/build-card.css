@@ -52,12 +52,18 @@
 }
 
 .build-card__photo {
+    /* img fills the card width; height follows the 3:2 box (and the width/height attributes) so nothing jumps while loading */
+    width: 100%;
+    height: auto;
     aspect-ratio: 3 / 2;
+    object-fit: cover;
+    /* maroon shows while the photo loads or if it fails */
     background: var(--color-surface-raised);
 }
 
 .build-card__title {
     font-family: var(--font-heading);
+    font-weight: 400;
     font-size: var(--text-lg);
     color: var(--color-text-on-surface);
     margin: 0;

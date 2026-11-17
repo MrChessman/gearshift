@@ -1,5 +1,6 @@
 .category-heading {
     font-family: var(--font-heading);
+    font-weight: 400;
     font-size: var(--text-lg);
     color: var(--color-text-on-page);
     text-align: center;
@@ -21,6 +22,7 @@
 .category-chip {
     flex: none;
     font-family: var(--font-heading);
+    font-weight: 400;
     font-size: var(--text-base);
     text-transform: uppercase;
     color: var(--color-text-on-surface);
