@@ -12,6 +12,7 @@ Name the skill if useful (Use the frontend-design skill). Read <files>. Do ONLY 
 
 ## Review checklist (screenshots at 1280px and 390px)
 Aligned and centered. Text readable. Real buttons or links with visible focus. Icon-only controls have aria-label. No raw colors, sizes or durations outside tokens.css. Nothing outside the task. Nothing invented. Say "not sure" if unsure.
+Items in a row line up (titles, buttons); text that wraps must not push other items out of line.
 
 ## How to work with Chessman
 - Short, plain language. One clear recommendation, never a menu.

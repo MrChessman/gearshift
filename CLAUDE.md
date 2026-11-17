@@ -1,7 +1,7 @@
 # Car website (ITEC80 HCI project)
 - Windows. Project folder: C:\Users\Chessman\car-site. Use relative paths only.
 - Python: ~/AppData/Local/Programs/Python/Python313/python.exe
-- Read docs/PROJECT.md first. Update its "Current status" before ending a session.
+- Read docs/PROJECT.md first.
 - Plain HTML, CSS, JavaScript first. Keep files small and separate.
 - Follow the HCI checklist in docs/PROJECT.md. No generic AI look: no default purple gradients, no stock card grids.
 - Every animation must give feedback or guide attention, respect prefers-reduced-motion, and never hide content.
