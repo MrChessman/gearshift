@@ -1,0 +1,238 @@
+/* Login form: fields, show/hide password, stay signed in, social and primary buttons.
+   Labels sit above the fields so they stay visible while typing on narrow screens. */
+
+.login-form {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.login-form__field {
+    display: grid;
+    gap: var(--space-1);
+}
+
+.login-form__label {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text-on-surface);
+}
+
+/* Visible required mark; the inputs also carry required for assistive tech */
+.login-form__required {
+    color: var(--white);
+}
+
+.login-form__input {
+    width: 100%;
+    /* TODO token: --min-touch-target */
+    min-height: 44px;
+    padding: var(--space-2) var(--space-3);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-on-page);
+    background: var(--white);
+    /* Transparent border reserves the space, so the error color never shifts the layout */
+    /* TODO token: --border-width */
+    border: 2px solid transparent;
+    border-radius: var(--radius-sm);
+    transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.login-form__input:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
+
+/* Error state: color is never the only cue, the message below names the field and the reason */
+.login-form__input[aria-invalid="true"] {
+    border-color: var(--color-action);
+}
+
+.login-form__input--with-toggle {
+    /* Clears the 44px show/hide button sitting inside the field */
+    padding-right: var(--space-8);
+}
+
+.login-form__password {
+    position: relative;
+    display: grid;
+}
+
+.login-form__toggle {
+    position: absolute;
+    top: 50%;
+    right: var(--space-1);
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* TODO token: --min-touch-target */
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text-on-page);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out);
+}
+
+.login-form__toggle:hover {
+    background: var(--gray-300);
+}
+
+/* Inset ring so it stays on the white input, where it is visible */
+.login-form__toggle:focus-visible {
+    outline: 2px solid var(--color-text-on-page);
+    outline-offset: -2px;
+}
+
+/* Error messages name the field and the reason; white stays readable on the maroon card
+   TODO token: --color-text-error */
+.login-form__error {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--white);
+}
+
+.login-form__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.login-form__remember {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    /* TODO token: --min-touch-target */
+    min-height: 44px;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text-on-surface);
+    cursor: pointer;
+}
+
+.login-form__checkbox {
+    width: var(--space-5);
+    height: var(--space-5);
+    accent-color: var(--color-action);
+    cursor: pointer;
+}
+
+.login-form__checkbox:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
+
+.login-form__forgot {
+    display: inline-flex;
+    align-items: center;
+    /* TODO token: --min-touch-target */
+    min-height: 44px;
+    padding: 0 var(--space-1);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text-on-surface);
+    text-decoration: underline;
+    border-radius: var(--radius-sm);
+    transition: background var(--dur-fast) var(--ease-out);
+}
+
+.login-form__forgot:hover {
+    background: var(--color-surface-raised);
+}
+
+.login-form__forgot:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
+
+.login-form__social {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+}
+
+.login-form__social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--space-8);
+    padding: var(--space-2) var(--space-3);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text-on-page);
+    background: var(--white);
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition:
+        background var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+}
+
+.login-form__social-button:hover {
+    background: var(--gray-300);
+}
+
+.login-form__social-button:active {
+    transform: scale(0.97);
+}
+
+.login-form__social-button:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
+
+/* Primary button: always --color-action, never gray — it must not look disabled
+   before submission begins */
+.login-form__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--space-8);
+    padding: var(--space-2) var(--space-3);
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: var(--text-base);
+    color: var(--white);
+    background: var(--color-action);
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition:
+        background var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+}
+
+.login-form__submit:hover {
+    background: var(--color-action-hover);
+}
+
+.login-form__submit:active {
+    transform: scale(0.97);
+}
+
+.login-form__submit:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
+
+/* Shell feedback while auth is not wired up yet */
+.login-form__status {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+}

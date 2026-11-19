@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login – GearShift</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Carlito:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components/login-form.css">
+    <link rel="stylesheet" href="css/pages/login.css">
+</head>
+
+<body>
+    <main class="login">
+        <div class="login__layout">
+            <section class="login__panel" aria-labelledby="login-logo">
+                <h1 class="login__logo" id="login-logo">
+                    <a href="#/home">GearShift</a>
+                </h1>
+
+                <form class="login-form" novalidate>
+                    <div class="login-form__field">
+                        <label class="login-form__label" for="login-email">
+                            Email <span class="login-form__required" aria-hidden="true">*</span>
+                        </label>
+                        <input class="login-form__input" id="login-email" name="email" type="email"
+                            autocomplete="email" required aria-describedby="login-email-error">
+                        <p class="login-form__error" id="login-email-error" aria-live="polite" hidden></p>
+                    </div>
+
+                    <div class="login-form__field">
+                        <label class="login-form__label" for="login-password">
+                            Password <span class="login-form__required" aria-hidden="true">*</span>
+                        </label>
+                        <div class="login-form__password">
+                            <input class="login-form__input login-form__input--with-toggle" id="login-password"
+                                name="password" type="password" autocomplete="current-password" required
+                                aria-describedby="login-password-error">
+                            <button class="login-form__toggle" type="button" aria-label="Show password" aria-pressed="false">
+                                <svg class="login-form__toggle-icon login-form__toggle-icon--eye" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg class="login-form__toggle-icon login-form__toggle-icon--eye-off" width="20"
+                                    height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden>
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"></path>
+                                    <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"></path>
+                                    <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"></path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <p class="login-form__error" id="login-password-error" aria-live="polite" hidden></p>
+                    </div>
+
+                    <div class="login-form__row">
+                        <label class="login-form__remember">
+                            <input class="login-form__checkbox" name="stay-signed-in" type="checkbox">
+                            Stay signed in
+                        </label>
+
+                        <a class="login-form__forgot" href="#/forgot">Forgot password?</a>
+                    </div>
+
+                    <div class="login-form__social">
+                        <button class="login-form__social-button" type="button">Google</button>
+                        <button class="login-form__social-button" type="button">Facebook</button>
+                    </div>
+
+                    <button class="login-form__submit" type="submit">Login</button>
+
+                    <p class="login-form__status" role="status" hidden></p>
+                </form>
+
+                <a class="login__signup" href="#/signup">Create Account</a>
+            </section>
+
+            <!-- Hero media stays as the desktop fallback until the Login hero task adds its asset. -->
+            <div class="login__media" aria-hidden="true"></div>
+        </div>
+    </main>
+
+    <script type="module" src="js/components/login-interactions.js"></script>
+</body>
+
+</html>

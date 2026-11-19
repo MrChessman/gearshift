@@ -13,3 +13,5 @@ Thumbs.db
 *.log
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
+
+HCI_lessons/

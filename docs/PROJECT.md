@@ -50,9 +50,9 @@ Still missing in the Figma: Build detail page, brand page, search page.
 
 ## Current status
 - Home shell done and polished: header, category chips, build cards with real photos (3:2), 2-column grid in a centered container, bottom nav with labels. Fonts: Anton (headings, chips, card titles, weight 400), Carlito (body, italic logo). Motion: staggered card reveal, hover and press feedback, reduced motion respected. Chips support independent client-side toggles and hearts support client-side save toggles with `aria-pressed`.
-- Tooling: OpenCode with GLM-5.3-Flash Free, /task command (.opencode/commands/task.md), skill frontend-design. Copilot writes prompts and reviews screenshots when Claude is out.
-- Open items: Car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
-- Next: review and commit the Home interaction task, then check the Web Design Guidelines skill on GitHub, audit Home, build the login page, and connect Supabase.
+- Tooling: primary workflow is direct implementation and review with the Copilot assistant, then free OpenCode when its quota refreshes. OmniRoute 3.8.53 and Claude Code were configured and verified, but are paused and should not be used for current work. OpenCode has frontend-design and Vercel web-design-guidelines installed; HCI lessons were converted to Markdown outside the repo.
+- Open items: Login shell is corrected and verified but remains uncommitted (`login.html`, `css/components/login-form.css`, `css/pages/login.css`, `js/components/login-interactions.js`); no aerial image or 3D hero has been chosen. Car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
+- Next: choose a licensed car video for the Login hero, then add it with a poster fallback, muted inline playback, and reduced-motion support. Review the result at 390px and 1280px before committing the Login shell. Consider a larger stack migration only after the current plain HTML/CSS/JavaScript version is stable.
 
 ## Log
 - 2026-11-17 | header, chips, card, grid | 272fb99, 62fac39
@@ -61,9 +61,19 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-17 | fonts and card polish, /task command | 389e036, 51fa3b8
 - 2026-11-17 | real car photos (placeholders) | ff5bc88
 - 2026-11-17 | card and button motion | e6c8581
-- 2026-11-17 | category heading text selection disabled | 12d9b68 | committed one-line CSS fix
-- 2026-11-17 | category chip design: pill shape, 48px token-based tap target, centered labels, overflow cue preserved | pending | CSS verified at 390px and 1280px; not committed yet
-- 2026-11-17 | Home chip and heart toggles | pending | independent multi-select chips, heart labels, keyboard behavior verified at 390px and 1280px; not committed yet
+- 2026-11-17 | category heading text selection disabled | 12d9b68 | one-line CSS fix
+- 2026-11-17 | category chip design: pill shape, 48px token-based tap target, centered labels, overflow cue preserved | 9f4d60d | verified at 390px and 1280px
+- 2026-11-17 | Home chip and heart toggles | b123ff5 | independent multi-select chips, heart labels, keyboard behavior verified at 390px and 1280px
+- 2026-11-17 | installed Vercel web-design-guidelines skill and audited Home | a40c40d | skill committed; audit findings not fixed yet: skip link, theme metadata, whole-card click target, long-content handling, token gaps
+- 2026-11-17 | converted six HCI lessons to Markdown outside the repo | no commit | lessons 1-6 in C:\Users\Chessman\HCI_lessons_markdown; HCI_lessons folder in repo is untracked and must never be committed
+- 2026-11-17 | installed OmniRoute 3.8.53 globally and ran doctor | no commit | 0 failures, 47 warnings; re-ran install with --allow-scripts (install scripts allowed for 7 packages) before the GitHub check
+- 2026-11-17 | OmniRoute GitHub check | no commit | MIT, ~88k stars, repo moved to cheaper-inference org, v3.8.54 latest (installed 3.8.53, not upgrading). Defaults bind 0.0.0.0, REQUIRE_API_KEY=false, placeholder password CHANGEME. Keys stored locally in AppData\Roaming\omniroute (encrypted per README); STORAGE_ENCRYPTION_KEY generated there by doctor, never commit or lose it. Plan: start with OMNIROUTE_SERVER_HOST=127.0.0.1, REQUIRE_API_KEY=true, own dashboard password; do not enable tunnel, autostart, MCP, A2A or MITM features
+- 2026-11-17 | OpenCode Login shell attempt stopped at free quota | pending | partial Login files (login.html, css/components/login-form.css, css/pages/login.css) saved but unreviewed, uncommitted and unpushed; do not delete, reset, overwrite, commit or push
+- 2026-11-17 | docs/PROJECT.md and skills-lock.json sync | pending | commit together with the next docs update
+- 2026-11-17 | OmniRoute server started | no commit | bound to 127.0.0.1:20128 only (verified with netstat), health endpoint healthy. Started with OMNIROUTE_SERVER_HOST=127.0.0.1, REQUIRE_API_KEY=true, INITIAL_PASSWORD empty; login still accepted default CHANGEME, so password must be changed in Settings > Security. Env vars were set per window only, nothing written to files.
+- 2026-11-17 | OmniRoute fallback and Claude Code verified | no commit | saved active priority combo gearshift-free-fallback with four free-quota provider models; generated the Claude Code profile and received the exact harmless test response. API keys remain local and unrecorded.
+- 2026-11-17 | Login shell review and interaction fix | pending | added password visibility and field-specific validation, preserved token-based styling, removed the missing aerial-image request, and verified at 390px and 1280px with no horizontal overflow.
+- 2026-11-17 | Login hero research and workflow handoff | no commit | img2threejs is Apache-2.0 but its official installer does not support Windows; 21st.dev is React/Tailwind-oriented and not suitable for the current stack. Pause OmniRoute and Claude Code; continue with direct assistant implementation and free OpenCode when available. Choose a licensed car video before adding the hero.
 
 ## Open questions for the friend
 - English or Taglish text?

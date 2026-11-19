@@ -22,3 +22,5 @@
 - Remove only the leftovers your own change created.
 - For multi-step work, state a short plan with a check for each step, then verify each one.
 - Read design/TASTE.md before any UI work. Where it conflicts with the Figma, TASTE.md wins.
+- You may be running on a smaller model (GLM-4.7-Flash). Work in tiny steps: one file or one function at a time. Read a file before editing it. After each step, say what changed and wait.
+- Never rewrite a whole file to change a few lines. Edit only the lines needed.

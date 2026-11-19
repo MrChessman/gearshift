@@ -1,0 +1,134 @@
+/* Login page: one card centered on the gray page; at wide widths the card shares
+   the row with the decorative car photo on the right half */
+
+.login {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    padding: var(--space-4);
+}
+
+/* margin auto centers the block and keeps the top reachable when content is taller than the viewport */
+.login__layout {
+    margin: auto;
+    width: 100%;
+    max-width: var(--container-max);
+}
+
+.login__panel {
+    background: var(--color-surface);
+    color: var(--color-text-on-surface);
+    /* TODO token: --border-width */
+    border: 2px solid var(--white);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+}
+
+.login__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-body);
+    font-style: italic;
+    font-weight: 700;
+    font-size: var(--text-xl);
+}
+
+.login__logo a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* TODO token: --min-touch-target */
+    min-height: 44px;
+    padding: 0 var(--space-2);
+    color: inherit;
+    text-decoration: none;
+}
+
+.login__logo a:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
+
+/* Create Account: navigation, so it is a real link styled as a quiet pill */
+.login__signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--space-4);
+    min-height: var(--space-8);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-text-on-surface);
+    text-decoration: none;
+    /* TODO token: --border-width */
+    border: 2px solid var(--white);
+    border-radius: var(--radius-pill);
+    transition:
+        background var(--dur-fast) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+}
+
+.login__signup:hover {
+    background: var(--color-surface-raised);
+}
+
+.login__signup:active {
+    transform: scale(0.97);
+}
+
+.login__signup:focus-visible {
+    outline: 2px solid var(--color-text-on-surface);
+    outline-offset: 2px;
+}
+
+/* Photo half is hidden below the breakpoint */
+.login__media {
+    display: none;
+}
+
+/* Photo half: desktop only, the form stays alone on small screens.
+   TODO token: --breakpoint-md */
+@media (min-width: 56rem) {
+    .login {
+        padding: var(--space-6);
+    }
+
+    .login__layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-6);
+    }
+
+    .login__media {
+        display: block;
+        overflow: hidden;
+        /* maroon shows while the photo loads or if it fails */
+        background: var(--color-surface-raised);
+        /* TODO token: --border-width */
+        border: 2px solid var(--white);
+        border-radius: var(--radius-md);
+    }
+
+}
+
+/* Load reveal: the card fades in and rises, like the home feed cards.
+   Reduced motion is handled in tokens.css: both durations become 0ms. */
+@keyframes login-rise {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.login__panel,
+.login__media {
+    animation: login-rise var(--dur-base) var(--ease-out) backwards;
+}
