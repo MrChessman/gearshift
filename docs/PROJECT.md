@@ -50,9 +50,9 @@ Still missing in the Figma: Build detail page, brand page, search page.
 
 ## Current status
 - Home shell done and polished: header, category chips, build cards with real photos (3:2), 2-column grid in a centered container, bottom nav with labels. Fonts: Anton (headings, chips, card titles, weight 400), Carlito (body, italic logo). Motion: staggered card reveal, hover and press feedback, reduced motion respected. Chips support independent client-side toggles and hearts support client-side save toggles with `aria-pressed`.
-- Tooling: free OpenCode first. When its quota runs out, the fallback is Claude Code running GLM-4.7-Flash (glm-4.7-flash:q8_0) from a Kaggle notebook through an ngrok tunnel: run the notebook cell, wait for "OLLAMA IS LIVE", then run `claude` in this folder. OmniRoute is no longer used. The Copilot assistant still does direct implementation and review. OpenCode has frontend-design and Vercel web-design-guidelines installed; HCI lessons were converted to Markdown outside the repo.
-- Open items: Login shell is committed (f621ee4) and verified; the hero media area is still an empty fallback;
-- Next: choose a licensed car video for the Login hero, then add it with a poster fallback, muted inline playback, and reduced-motion support. Review the result at 390px and 1280px before committing the Login shell. Consider a larger stack migration only after the current plain HTML/CSS/JavaScript version is stable.
+- Tooling: free OpenCode first. When its quota runs out, the fallback is Claude Code running GLM-4.7-Flash (glm-4.7-flash:q8_0) from a Kaggle notebook through an ngrok tunnel: run the notebook cell, wait for "OLLAMA IS LIVE", then run `claude` in this folder. OmniRoute is no longer used. The Copilot assistant still does direct implementation and review. OpenCode has frontend-design and Vercel web-design-guidelines installed; HCI lessons were converted to Markdown outside the repo.Context7 MCP is installed in Claude Code for current library docs.
+- Open items: Login shell is committed (f621ee4) and verified, but its hero media area is an empty fallback (no video or 3D hero chosen yet). Car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
+- Next: choose a licensed car video for the Login hero, then add it with a poster fallback, muted inline playback, and reduced-motion support. Review at 390px and 1280px, then commit.
 
 ## Log
 - 2026-11-17 | header, chips, card, grid | 272fb99, 62fac39
@@ -74,6 +74,7 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-17 | OmniRoute fallback and Claude Code verified | no commit | saved active priority combo gearshift-free-fallback with four free-quota provider models; generated the Claude Code profile and received the exact harmless test response. API keys remain local and unrecorded.
 - 2026-11-17 | Login shell review and interaction fix | pending | added password visibility and field-specific validation, preserved token-based styling, removed the missing aerial-image request, and verified at 390px and 1280px with no horizontal overflow.
 - 2026-11-17 | Login hero research and workflow handoff | no commit | img2threejs is Apache-2.0 but its official installer does not support Windows; 21st.dev is React/Tailwind-oriented and not suitable for the current stack. Pause OmniRoute and Claude Code; continue with direct assistant implementation and free OpenCode when available. Choose a licensed car video before adding the hero.
+- 2026-11-19 | tooling switch and Login shell commit | f621ee4 | OmniRoute dropped; fallback is now Claude Code with GLM-4.7-Flash on Kaggle via ngrok; HCI_lessons added to .gitignore and removed from the commit; this supersedes the earlier pending Login shell and "pause OmniRoute and Claude Code" entries
 
 ## Open questions for the friend
 - English or Taglish text?
