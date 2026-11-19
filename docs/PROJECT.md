@@ -75,6 +75,8 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-17 | Login shell review and interaction fix | pending | added password visibility and field-specific validation, preserved token-based styling, removed the missing aerial-image request, and verified at 390px and 1280px with no horizontal overflow.
 - 2026-11-17 | Login hero research and workflow handoff | no commit | img2threejs is Apache-2.0 but its official installer does not support Windows; 21st.dev is React/Tailwind-oriented and not suitable for the current stack. Pause OmniRoute and Claude Code; continue with direct assistant implementation and free OpenCode when available. Choose a licensed car video before adding the hero.
 - 2026-11-19 | tooling switch and Login shell commit | f621ee4 | OmniRoute dropped; fallback is now Claude Code with GLM-4.7-Flash on Kaggle via ngrok; HCI_lessons added to .gitignore and removed from the commit; this supersedes the earlier pending Login shell and "pause OmniRoute and Claude Code" entries
+- 2026-11-19 | theme-color meta on Home and Login | <hash> | closes the theme metadata audit item for these two pages; first task run on Claude Code with qwen3.8:27b via Kaggle
+- 2026-11-19 | theme-color meta on Home and Login | 84db14b | closes the theme metadata audit item for these two pages; first task on Claude Code with qwen3.8:27b via Kaggle (first reply about 6.5 min, follow-up 13 s); context7 and caveman installed
 
 ## Open questions for the friend
 - English or Taglish text?

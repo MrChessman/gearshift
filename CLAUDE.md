@@ -25,3 +25,10 @@
 - You may be running on a smaller local model (Qwen3.8 27B or GLM-4.7-Flash). Work in tiny steps: one file or one function at a time. Read a file before editing it. After each step, say what changed and wait.
 - Never rewrite a whole file to change a few lines. Edit only the lines needed.
 - For Supabase or any library question, use Context7 first (for Supabase: library /supabase/supabase). Do not answer library API details from memory.
+
+## After every finished task
+- Updating docs/PROJECT.md is part of every task, even when the request says "do only this". It does not count as an extra feature.
+- Rewrite "Current status" (done, next, open problems) and add one line at the end of "Log": date | task | pending | decisions. Keep it short and write it for a reader who has seen nothing else.
+- Write the word pending for the commit hash. At the start of the next task, run git log --oneline -5 and replace any pending with the real hash.
+- Never commit. Chessman commits after review.
+- Change nothing else in PROJECT.md.
