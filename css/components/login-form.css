@@ -1,4 +1,4 @@
-/* Login form: fields, show/hide password, stay signed in, social and primary buttons.
+/* Login form: fields, show/hide password, stay signed in, and primary button.
    Labels sit above the fields so they stay visible while typing on narrow screens. */
 
 .login-form {
@@ -78,6 +78,12 @@
     transition: background var(--dur-fast) var(--ease-out);
 }
 
+/* SVG does not get the browser's [hidden] rule, so both icons would show side by side.
+   This rule makes the hidden attribute hide the eye icon. */
+.login-form__toggle-icon[hidden] {
+    display: none;
+}
+
 .login-form__toggle:hover {
     background: var(--gray-300);
 }
@@ -151,44 +157,6 @@
 }
 
 .login-form__forgot:focus-visible {
-    outline: 2px solid var(--color-text-on-surface);
-    outline-offset: 2px;
-}
-
-.login-form__social {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-3);
-}
-
-.login-form__social-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: var(--space-8);
-    padding: var(--space-2) var(--space-3);
-    font-family: var(--font-body);
-    font-size: var(--text-base);
-    font-weight: 700;
-    color: var(--color-text-on-page);
-    background: var(--white);
-    border: none;
-    border-radius: var(--radius-pill);
-    cursor: pointer;
-    transition:
-        background var(--dur-fast) var(--ease-out),
-        transform var(--dur-fast) var(--ease-out);
-}
-
-.login-form__social-button:hover {
-    background: var(--gray-300);
-}
-
-.login-form__social-button:active {
-    transform: scale(0.97);
-}
-
-.login-form__social-button:focus-visible {
     outline: 2px solid var(--color-text-on-surface);
     outline-offset: 2px;
 }

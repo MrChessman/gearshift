@@ -43,8 +43,8 @@ function setupPasswordToggle(form) {
         input.type = isVisible ? 'password' : 'text';
         toggle.setAttribute('aria-label', isVisible ? 'Show password' : 'Hide password');
         toggle.setAttribute('aria-pressed', String(!isVisible));
-        eye.hidden = !isVisible;
-        eyeOff.hidden = isVisible;
+        eye.toggleAttribute('hidden', !isVisible);
+        eyeOff.toggleAttribute('hidden', isVisible);
     });
 }
 
