@@ -75,6 +75,7 @@ export function initLoginInteractions(root = document) {
 
         if (!emailValid || !passwordValid) {
             status.hidden = true;
+            (emailValid ? password : email).focus();
             return;
         }
 
@@ -83,13 +84,13 @@ export function initLoginInteractions(root = document) {
     });
 
     email.addEventListener('input', () => {
-        if (email.value.trim()) {
+        if (email.getAttribute('aria-invalid') === 'true') {
             validateField(email, emailError, 'Email');
         }
     });
 
     password.addEventListener('input', () => {
-        if (password.value.trim()) {
+        if (password.getAttribute('aria-invalid') === 'true') {
             validateField(password, passwordError, 'Password');
         }
     });

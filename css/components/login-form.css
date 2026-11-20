@@ -94,6 +94,16 @@
     outline-offset: -2px;
 }
 
+/* Fade-down entrance. A keyframe animation (not a transition) because `hidden`
+   flips display, and the animation restarts each time the element unhides.
+   Only transform and opacity; the token duration is 0ms under reduced motion. */
+@keyframes login-form-fade-down {
+    from {
+        opacity: 0;
+        transform: translateY(calc(var(--space-1) * -1));
+    }
+}
+
 /* Error messages name the field and the reason; white stays readable on the maroon card
    TODO token: --color-text-error */
 .login-form__error {
@@ -102,6 +112,7 @@
     font-size: var(--text-sm);
     font-weight: 700;
     color: var(--white);
+    animation: login-form-fade-down var(--dur-base) var(--ease-out);
 }
 
 .login-form__row {
@@ -203,4 +214,5 @@
     font-weight: 700;
     color: var(--white);
     text-align: center;
+    animation: login-form-fade-down var(--dur-base) var(--ease-out);
 }
