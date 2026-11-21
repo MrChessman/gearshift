@@ -54,8 +54,9 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - Done: Login password eye shows one icon and swaps on click. The hidden attribute does not hide an SVG by itself, so login-form.css now hides `.login-form__toggle-icon[hidden]`. Verified at 390px and 1280px with no horizontal overflow.
 - Login validation is quiet-first: fields only re-check while already showing an error, and a failed submit moves focus to the first invalid field (email first, then password).
 - Login error and status messages now fade down (opacity + small translateY) each time they appear, via a keyframe animation in login-form.css; zero-length under prefers-reduced-motion.
+- Login layout is full-bleed like the Figma: from 56rem the maroon panel and media half split the viewport evenly with no gap, border or radius; below 56rem the maroon panel fills the screen and the media is hidden. Form is centered and capped at 32rem, reveal animation kept. Verified at 390px and 1280px with no overflow.
 - Open items: Login hero media area is an empty fallback (no video or 3D hero chosen yet). Car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
-- Next: full-bleed split layout like the Figma, then outlined fields and visible checkbox.
+- Next: outlined fields and a visible checkbox on Login.
 
 ## Log
 - 2026-11-17 | header, chips, card, grid | 272fb99, 62fac39
@@ -85,7 +86,8 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-20 | Login validation timing and focus on failed submit | 103aad7 | input listeners only re-check fields already marked aria-invalid, so errors clear as soon as fixed; focus moves to first invalid field
 - 2026-11-20 | Login error and status fade-down on trigger | 103aad7 | keyframe animation (transform + opacity, --dur-base) restarts each time hidden is removed; applied at all sizes
 - 2026-11-20 | replaced pending hashes, one-search-mcp added | dfad661 | search tool for Claude Code only, not yet tested
-- 2026-11-21 | Login tokens --min-touch-target and --border-width | 103aad7 | raw 44px and 2px replaced in Login CSS
+- 2026-11-21 | Login tokens --min-touch-target and --border-width | 6a9b949 | raw 44px and 2px replaced in Login CSS
+- 2026-11-21 | Login full-bleed split layout, card removed | pending | two equal halves from 56rem, maroon panel full-screen below it, reveal kept; verified at 390px and 1280px with no overflow
 
 ## Open questions for the friend
 - English or Taglish text?

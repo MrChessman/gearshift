@@ -1,26 +1,37 @@
-/* Login page: one card centered on the gray page; at wide widths the card shares
-   the row with the decorative car photo on the right half */
+/* Login page: full-bleed split. On small screens the maroon panel is the whole
+   page; from 56rem it shares the viewport with the decorative media half. */
 
 .login {
     min-height: 100vh;
     min-height: 100svh;
     display: grid;
-    padding: var(--space-4);
+    grid-template-rows: 1fr;
+    background: var(--color-surface);
 }
 
-/* margin auto centers the block and keeps the top reachable when content is taller than the viewport */
+/* One column that fills the viewport height, so the panel reaches every edge */
 .login__layout {
-    margin: auto;
+    display: grid;
+    grid-template-rows: 1fr;
     width: 100%;
-    max-width: var(--container-max);
 }
 
+/* Left half: maroon surface, form centered in a single column with a max width */
 .login__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: safe center;
     background: var(--color-surface);
     color: var(--color-text-on-surface);
-    border: var(--border-width) solid var(--white);
-    border-radius: var(--radius-md);
     padding: var(--space-5);
+}
+
+/* Keep the form readable on wide screens without a card around it */
+.login__panel > * {
+    width: 100%;
+    max-width: calc(var(--container-max) / 2);
 }
 
 .login__logo {
@@ -86,17 +97,14 @@
     display: none;
 }
 
-/* Photo half: desktop only, the form stays alone on small screens.
-   TODO token: --breakpoint-md */
+/* Photo half: desktop only; below 56rem the form alone fills the screen */
 @media (min-width: 56rem) {
-    .login {
-        padding: var(--space-6);
+    .login__layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
 
-    .login__layout {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-6);
+    .login__panel {
+        padding: var(--space-6);
     }
 
     .login__media {
@@ -104,18 +112,15 @@
         overflow: hidden;
         /* maroon shows while the photo loads or if it fails */
         background: var(--color-surface-raised);
-        border: var(--border-width) solid var(--white);
-        border-radius: var(--radius-md);
     }
-
 }
 
-/* Load reveal: the card fades in and rises, like the home feed cards.
+/* Load reveal: the halves fade in and rise, like the home feed cards.
    Reduced motion is handled in tokens.css: both durations become 0ms. */
 @keyframes login-rise {
     from {
         opacity: 0;
-        transform: translateY(12px);
+        transform: translateY(var(--space-3));
     }
 
     to {
