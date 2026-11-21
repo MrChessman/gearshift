@@ -32,6 +32,10 @@
     --radius-md: 12px;
     --radius-pill: 999px;
 
+    /* Sizes */
+    --min-touch-target: 2.75rem;
+    --border-width: 2px;
+
     /* Fonts */
     --font-heading: "Anton", "Arial Narrow", sans-serif;
     --font-body: "Carlito", Calibri, Arial, sans-serif;

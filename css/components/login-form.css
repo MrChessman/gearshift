@@ -25,23 +25,21 @@
 
 .login-form__input {
     width: 100%;
-    /* TODO token: --min-touch-target */
-    min-height: 44px;
+    min-height: var(--min-touch-target);
     padding: var(--space-2) var(--space-3);
     font-family: var(--font-body);
     font-size: var(--text-base);
     color: var(--color-text-on-page);
     background: var(--white);
     /* Transparent border reserves the space, so the error color never shifts the layout */
-    /* TODO token: --border-width */
-    border: 2px solid transparent;
+    border: var(--border-width) solid transparent;
     border-radius: var(--radius-sm);
     transition: border-color var(--dur-fast) var(--ease-out);
 }
 
 .login-form__input:focus-visible {
-    outline: 2px solid var(--color-text-on-surface);
-    outline-offset: 2px;
+    outline: var(--border-width) solid var(--color-text-on-surface);
+    outline-offset: var(--border-width);
 }
 
 /* Error state: color is never the only cue, the message below names the field and the reason */
@@ -67,9 +65,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* TODO token: --min-touch-target */
-    width: 44px;
-    height: 44px;
+    width: var(--min-touch-target);
+    height: var(--min-touch-target);
     border: none;
     border-radius: var(--radius-sm);
     background: transparent;
@@ -90,8 +87,8 @@
 
 /* Inset ring so it stays on the white input, where it is visible */
 .login-form__toggle:focus-visible {
-    outline: 2px solid var(--color-text-on-page);
-    outline-offset: -2px;
+    outline: var(--border-width) solid var(--color-text-on-page);
+    outline-offset: calc(var(--border-width) * -1);
 }
 
 /* Fade-down entrance. A keyframe animation (not a transition) because `hidden`
@@ -127,8 +124,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    /* TODO token: --min-touch-target */
-    min-height: 44px;
+    min-height: var(--min-touch-target);
     font-family: var(--font-body);
     font-size: var(--text-base);
     font-weight: 700;
@@ -144,15 +140,14 @@
 }
 
 .login-form__checkbox:focus-visible {
-    outline: 2px solid var(--color-text-on-surface);
-    outline-offset: 2px;
+    outline: var(--border-width) solid var(--color-text-on-surface);
+    outline-offset: var(--border-width);
 }
 
 .login-form__forgot {
     display: inline-flex;
     align-items: center;
-    /* TODO token: --min-touch-target */
-    min-height: 44px;
+    min-height: var(--min-touch-target);
     padding: 0 var(--space-1);
     font-family: var(--font-body);
     font-size: var(--text-base);
@@ -168,8 +163,8 @@
 }
 
 .login-form__forgot:focus-visible {
-    outline: 2px solid var(--color-text-on-surface);
-    outline-offset: 2px;
+    outline: var(--border-width) solid var(--color-text-on-surface);
+    outline-offset: var(--border-width);
 }
 
 /* Primary button: always --color-action, never gray — it must not look disabled
@@ -202,8 +197,8 @@
 }
 
 .login-form__submit:focus-visible {
-    outline: 2px solid var(--color-text-on-surface);
-    outline-offset: 2px;
+    outline: var(--border-width) solid var(--color-text-on-surface);
+    outline-offset: var(--border-width);
 }
 
 /* Shell feedback while auth is not wired up yet */

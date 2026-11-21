@@ -55,7 +55,7 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - Login validation is quiet-first: fields only re-check while already showing an error, and a failed submit moves focus to the first invalid field (email first, then password).
 - Login error and status messages now fade down (opacity + small translateY) each time they appear, via a keyframe animation in login-form.css; zero-length under prefers-reduced-motion.
 - Open items: Login hero media area is an empty fallback (no video or 3D hero chosen yet). Car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
-- Next: tokens (--min-touch-target, --border-width), then full-bleed split layout like the Figma, then hero.
+- Next: full-bleed split layout like the Figma, then outlined fields and visible checkbox.
 
 ## Log
 - 2026-11-17 | header, chips, card, grid | 272fb99, 62fac39
@@ -82,9 +82,10 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-19 | removed Google and Facebook buttons from Login | ed47262 | Facebook skipped, Google later if time allows
 - 2026-11-19 | fixed Login password eye icon swap | ed47262 | SVG visibility now uses the hidden attribute; login-form.css has no icon rule overriding it
 - 2026-11-19 | fixed both eye icons showing side by side | ed47262 | the hidden attribute does not hide SVG, so login-form.css hides .login-form__toggle-icon[hidden]; checked at 390px and 1280px
-- 2026-11-20 | Login validation timing and focus on failed submit | pending | input listeners only re-check fields already marked aria-invalid, so errors clear as soon as fixed; focus moves to first invalid field
-- 2026-11-20 | Login error and status fade-down on trigger | pending | keyframe animation (transform + opacity, --dur-base) restarts each time hidden is removed; applied at all sizes
-- 2026-11-20 | replaced pending hashes, one-search-mcp added | pending | search tool for Claude Code only, not yet tested
+- 2026-11-20 | Login validation timing and focus on failed submit | 103aad7 | input listeners only re-check fields already marked aria-invalid, so errors clear as soon as fixed; focus moves to first invalid field
+- 2026-11-20 | Login error and status fade-down on trigger | 103aad7 | keyframe animation (transform + opacity, --dur-base) restarts each time hidden is removed; applied at all sizes
+- 2026-11-20 | replaced pending hashes, one-search-mcp added | dfad661 | search tool for Claude Code only, not yet tested
+- 2026-11-21 | Login tokens --min-touch-target and --border-width | 103aad7 | raw 44px and 2px replaced in Login CSS
 
 ## Open questions for the friend
 - English or Taglish text?

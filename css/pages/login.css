@@ -18,8 +18,7 @@
 .login__panel {
     background: var(--color-surface);
     color: var(--color-text-on-surface);
-    /* TODO token: --border-width */
-    border: 2px solid var(--white);
+    border: var(--border-width) solid var(--white);
     border-radius: var(--radius-md);
     padding: var(--space-5);
 }
@@ -39,16 +38,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    /* TODO token: --min-touch-target */
-    min-height: 44px;
+    min-height: var(--min-touch-target);
     padding: 0 var(--space-2);
     color: inherit;
     text-decoration: none;
 }
 
 .login__logo a:focus-visible {
-    outline: 2px solid var(--color-text-on-surface);
-    outline-offset: 2px;
+    outline: var(--border-width) solid var(--color-text-on-surface);
+    outline-offset: var(--border-width);
 }
 
 /* Create Account: navigation, so it is a real link styled as a quiet pill */
@@ -63,8 +61,7 @@
     font-weight: 700;
     color: var(--color-text-on-surface);
     text-decoration: none;
-    /* TODO token: --border-width */
-    border: 2px solid var(--white);
+    border: var(--border-width) solid var(--white);
     border-radius: var(--radius-pill);
     transition:
         background var(--dur-fast) var(--ease-out),
@@ -80,8 +77,8 @@
 }
 
 .login__signup:focus-visible {
-    outline: 2px solid var(--color-text-on-surface);
-    outline-offset: 2px;
+    outline: var(--border-width) solid var(--color-text-on-surface);
+    outline-offset: var(--border-width);
 }
 
 /* Photo half is hidden below the breakpoint */
@@ -107,8 +104,7 @@
         overflow: hidden;
         /* maroon shows while the photo loads or if it fails */
         background: var(--color-surface-raised);
-        /* TODO token: --border-width */
-        border: 2px solid var(--white);
+        border: var(--border-width) solid var(--white);
         border-radius: var(--radius-md);
     }
 
