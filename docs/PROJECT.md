@@ -55,7 +55,7 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - Login validation is quiet-first: fields only re-check while already showing an error, and a failed submit moves focus to the first invalid field (email first, then password).
 - Login error and status messages now fade down (opacity + small translateY) each time they appear, via a keyframe animation in login-form.css; zero-length under prefers-reduced-motion.
 - Open items: Login hero media area is an empty fallback (no video or 3D hero chosen yet). Car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
-- Next: commit the Login error fade-down, then choose a licensed car video for the Login hero.
+- Next: tokens (--min-touch-target, --border-width), then full-bleed split layout like the Figma, then hero.
 
 ## Log
 - 2026-11-17 | header, chips, card, grid | 272fb99, 62fac39
@@ -71,19 +71,20 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-17 | converted six HCI lessons to Markdown outside the repo | no commit | lessons 1-6 in C:\Users\Chessman\HCI_lessons_markdown; HCI_lessons folder in repo is untracked and must never be committed
 - 2026-11-17 | installed OmniRoute 3.8.53 globally and ran doctor | no commit | 0 failures, 47 warnings; re-ran install with --allow-scripts (install scripts allowed for 7 packages) before the GitHub check
 - 2026-11-17 | OmniRoute GitHub check | no commit | MIT, ~88k stars, repo moved to cheaper-inference org, v3.8.54 latest (installed 3.8.53, not upgrading). Defaults bind 0.0.0.0, REQUIRE_API_KEY=false, placeholder password CHANGEME. Keys stored locally in AppData\Roaming\omniroute (encrypted per README); STORAGE_ENCRYPTION_KEY generated there by doctor, never commit or lose it. Plan: start with OMNIROUTE_SERVER_HOST=127.0.0.1, REQUIRE_API_KEY=true, own dashboard password; do not enable tunnel, autostart, MCP, A2A or MITM features
-- 2026-11-17 | OpenCode Login shell attempt stopped at free quota | pending | partial Login files (login.html, css/components/login-form.css, css/pages/login.css) saved but unreviewed, uncommitted and unpushed; do not delete, reset, overwrite, commit or push
-- 2026-11-17 | docs/PROJECT.md and skills-lock.json sync | pending | commit together with the next docs update
+- 2026-11-17 | OpenCode Login shell attempt stopped at free quota | f621ee4 | partial Login files (login.html, css/components/login-form.css, css/pages/login.css) saved but unreviewed, uncommitted and unpushed; do not delete, reset, overwrite, commit or push
+- 2026-11-17 | docs/PROJECT.md and skills-lock.json sync | 765188a | commit together with the next docs update
 - 2026-11-17 | OmniRoute server started | no commit | bound to 127.0.0.1:20128 only (verified with netstat), health endpoint healthy. Started with OMNIROUTE_SERVER_HOST=127.0.0.1, REQUIRE_API_KEY=true, INITIAL_PASSWORD empty; login still accepted default CHANGEME, so password must be changed in Settings > Security. Env vars were set per window only, nothing written to files.
 - 2026-11-17 | OmniRoute fallback and Claude Code verified | no commit | saved active priority combo gearshift-free-fallback with four free-quota provider models; generated the Claude Code profile and received the exact harmless test response. API keys remain local and unrecorded.
-- 2026-11-17 | Login shell review and interaction fix | pending | added password visibility and field-specific validation, preserved token-based styling, removed the missing aerial-image request, and verified at 390px and 1280px with no horizontal overflow.
+- 2026-11-17 | Login shell review and interaction fix | f621ee4 | added password visibility and field-specific validation, preserved token-based styling, removed the missing aerial-image request, and verified at 390px and 1280px with no horizontal overflow.
 - 2026-11-17 | Login hero research and workflow handoff | no commit | img2threejs is Apache-2.0 but its official installer does not support Windows; 21st.dev is React/Tailwind-oriented and not suitable for the current stack. Pause OmniRoute and Claude Code; continue with direct assistant implementation and free OpenCode when available. Choose a licensed car video before adding the hero.
 - 2026-11-19 | tooling switch and Login shell commit | f621ee4 | OmniRoute dropped; fallback is now Claude Code with GLM-4.7-Flash on Kaggle via ngrok; HCI_lessons added to .gitignore and removed from the commit; this supersedes the earlier pending Login shell and "pause OmniRoute and Claude Code" entries
 - 2026-11-19 | theme-color meta on Home and Login | 84db14b | closes the theme metadata audit item for these two pages; first task on Claude Code with qwen3.8:27b via Kaggle (first reply about 6.5 min, follow-up 13 s); context7 and caveman installed
 - 2026-11-19 | removed Google and Facebook buttons from Login | ed47262 | Facebook skipped, Google later if time allows
 - 2026-11-19 | fixed Login password eye icon swap | ed47262 | SVG visibility now uses the hidden attribute; login-form.css has no icon rule overriding it
 - 2026-11-19 | fixed both eye icons showing side by side | ed47262 | the hidden attribute does not hide SVG, so login-form.css hides .login-form__toggle-icon[hidden]; checked at 390px and 1280px
-- 2026-11-20 | Login validation timing and focus on failed submit | ed47262 | input listeners only re-check fields already marked aria-invalid, so errors clear as soon as fixed; focus moves to first invalid field
+- 2026-11-20 | Login validation timing and focus on failed submit | pending | input listeners only re-check fields already marked aria-invalid, so errors clear as soon as fixed; focus moves to first invalid field
 - 2026-11-20 | Login error and status fade-down on trigger | pending | keyframe animation (transform + opacity, --dur-base) restarts each time hidden is removed; applied at all sizes
+- 2026-11-20 | replaced pending hashes, one-search-mcp added | pending | search tool for Claude Code only, not yet tested
 
 ## Open questions for the friend
 - English or Taglish text?
