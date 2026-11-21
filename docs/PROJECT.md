@@ -87,7 +87,7 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-20 | Login error and status fade-down on trigger | 103aad7 | keyframe animation (transform + opacity, --dur-base) restarts each time hidden is removed; applied at all sizes
 - 2026-11-20 | replaced pending hashes, one-search-mcp added | dfad661 | search tool for Claude Code only, not yet tested
 - 2026-11-21 | Login tokens --min-touch-target and --border-width | 6a9b949 | raw 44px and 2px replaced in Login CSS
-- 2026-11-21 | Login full-bleed split layout, card removed | pending | two equal halves from 56rem, maroon panel full-screen below it, reveal kept; verified at 390px and 1280px with no overflow
+- 2026-11-21 | Login full-bleed split layout, card removed | 0bbc5ca | two equal halves from 56rem, maroon panel full-screen below it, reveal kept; verified at 390px and 1280px with no overflow
 
 ## Open questions for the friend
 - English or Taglish text?
