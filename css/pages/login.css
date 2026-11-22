@@ -112,9 +112,25 @@
 
     .login__media {
         display: block;
+        position: relative;
         overflow: hidden;
         /* maroon shows while the photo loads or if it fails */
         background: var(--color-surface-raised);
+        /* inside the media query only, so phones never request the file */
+        background-image: url("../../assets/img/cars/login-hero-poster.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Soften the shared edge: blend the photo into the maroon panel */
+    .login__media::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: calc(var(--space-8) * 3);
+        background: linear-gradient(to right, var(--color-surface), transparent);
     }
 }
 

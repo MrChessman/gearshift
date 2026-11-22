@@ -77,11 +77,13 @@
     justify-content: center;
     width: var(--min-touch-target);
     height: var(--min-touch-target);
+    /* UA default paints a pale ButtonFace square inside the field */
+    background: transparent;
     border: none;
     border-radius: var(--radius-sm);
-    background: transparent;
     color: var(--color-text-on-surface);
     cursor: pointer;
+    transition: color var(--dur-fast) var(--ease-out);
 }
 
 /* SVG does not get the browser's [hidden] rule, so both icons would show side by side.
@@ -94,6 +96,11 @@
 .login-form__toggle:focus-visible {
     outline: var(--border-width) solid var(--color-text-on-surface);
     outline-offset: calc(var(--border-width) * -1);
+}
+
+/* Hover feedback is the icon color only; the button never gains a background */
+.login-form__toggle:hover {
+    color: var(--gray-300);
 }
 
 /* Fade-down entrance. A keyframe animation (not a transition) because `hidden`
@@ -189,6 +196,11 @@
 .login-form__forgot:focus-visible {
     outline: var(--border-width) solid var(--color-text-on-surface);
     outline-offset: var(--border-width);
+}
+
+/* Hover feedback is the text color only; the underline stays, no background */
+.login-form__forgot:hover {
+    color: var(--gray-300);
 }
 
 /* Primary button: always --color-action, never gray — it must not look disabled
