@@ -39,10 +39,13 @@
     align-items: center;
     justify-content: center;
     margin: 0 0 var(--space-5);
-    font-family: var(--font-body);
-    font-style: italic;
-    font-weight: 700;
-    font-size: var(--text-xl);
+}
+
+.login__logo img {
+    display: block;
+    width: var(--logo-width);
+    height: auto;
+    max-width: 100%;
 }
 
 .login__logo a {

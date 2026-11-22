@@ -29,12 +29,22 @@
     padding: var(--space-2) var(--space-3);
     font-family: var(--font-body);
     font-size: var(--text-base);
-    color: var(--color-text-on-page);
-    background: var(--white);
-    /* Transparent border reserves the space, so the error color never shifts the layout */
-    border: var(--border-width) solid transparent;
+    color: var(--color-text-on-surface);
+    background: transparent;
+    /* Outlined field: the white border never moves, only its color changes on error */
+    border: var(--border-width) solid var(--color-text-on-surface);
     border-radius: var(--radius-sm);
     transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+/* Chrome paints its own pale background on autofill, which would hide white text.
+   The inset shadow repaints the field in the surface color; the text stays white. */
+.login-form__input:-webkit-autofill,
+.login-form__input:-webkit-autofill:hover,
+.login-form__input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-text-on-surface);
+    box-shadow: inset 0 0 0 var(--autofill-cover) var(--color-surface);
+    caret-color: var(--color-text-on-surface);
 }
 
 .login-form__input:focus-visible {
@@ -70,9 +80,8 @@
     border: none;
     border-radius: var(--radius-sm);
     background: transparent;
-    color: var(--color-text-on-page);
+    color: var(--color-text-on-surface);
     cursor: pointer;
-    transition: background var(--dur-fast) var(--ease-out);
 }
 
 /* SVG does not get the browser's [hidden] rule, so both icons would show side by side.
@@ -81,13 +90,9 @@
     display: none;
 }
 
-.login-form__toggle:hover {
-    background: var(--gray-300);
-}
-
-/* Inset ring so it stays on the white input, where it is visible */
+/* Inset ring so the button keeps its ring inside the field, clear of the border */
 .login-form__toggle:focus-visible {
-    outline: var(--border-width) solid var(--color-text-on-page);
+    outline: var(--border-width) solid var(--color-text-on-surface);
     outline-offset: calc(var(--border-width) * -1);
 }
 
@@ -96,6 +101,15 @@
    Only transform and opacity; the token duration is 0ms under reduced motion. */
 @keyframes login-form-fade-down {
     from {
+        opacity: 0;
+        transform: translateY(calc(var(--space-1) * -1));
+    }
+}
+
+/* Fade-down exit. Removes display after animation completes.
+   Only transform and opacity; the token duration is 0ms under reduced motion. */
+@keyframes login-form-fade-out {
+    to {
         opacity: 0;
         transform: translateY(calc(var(--space-1) * -1));
     }
@@ -133,10 +147,25 @@
 }
 
 .login-form__checkbox {
+    appearance: none;
+    -webkit-appearance: none;
     width: var(--space-5);
     height: var(--space-5);
-    accent-color: var(--color-action);
+    margin: 0;
+    background: transparent;
+    border: var(--border-width) solid var(--color-text-on-surface);
+    border-radius: var(--radius-sm);
     cursor: pointer;
+}
+
+/* Checked: filled white with a maroon check. The check color is the --color-surface
+   value written as #2B0808, because an SVG data URI cannot read a CSS variable. */
+.login-form__checkbox:checked {
+    background-color: var(--color-text-on-surface);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232B0808' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .login-form__checkbox:focus-visible {
@@ -155,11 +184,6 @@
     color: var(--color-text-on-surface);
     text-decoration: underline;
     border-radius: var(--radius-sm);
-    transition: background var(--dur-fast) var(--ease-out);
-}
-
-.login-form__forgot:hover {
-    background: var(--color-surface-raised);
 }
 
 .login-form__forgot:focus-visible {

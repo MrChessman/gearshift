@@ -35,6 +35,8 @@
     /* Sizes */
     --min-touch-target: 2.75rem;
     --border-width: 2px;
+    --logo-width: 11rem;
+    --autofill-cover: 1000px;
 
     /* Fonts */
     --font-heading: "Anton", "Arial Narrow", sans-serif;

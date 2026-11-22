@@ -14,7 +14,7 @@ The friend's Figma (13 screens) is the starting point. We improve it where the l
 - Free static host. Supabase free plan: 500 MB database, 1 GB storage, pauses after 7 days of no activity (wake it before the presentation).
 
 ## Screens (from the final Figma) and routes
-- Login [#/login]: logo, email, password with show/hide eye, "Stay signed in", Forgot password link, Google and Facebook buttons, LOGIN, Create Account link. Car photo on the right half.
+- Login [#/login]: logo, email, password with show/hide eye, "Stay signed in", Forgot password link, LOGIN, Create Account link. Car photo on the right half.
 - Create Account [#/signup]: first name, last name, age, username, email, password, confirm password, Sign Up, "Already have account? Login here."
 - Forgot Password [#/forgot]: panel with X. New password*, re-enter*, email, Reset Password.
 - Check Your Email [#/reset-sent]: shows the email, Resend Email, Return to Login Page.
@@ -49,14 +49,14 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - Look: dark maroon (#2B0808) background, light gray panels, white text, cards with a white border. Fonts: Anton (headings), Carlito (logo and body). All values live in css/tokens.css.
 
 ## Current status
-- Home shell done and polished: header, category chips, build cards with real photos (3:2), 2-column grid in a centered container, bottom nav with labels. Fonts: Anton (headings, chips, card titles, weight 400), Carlito (body, italic logo). Motion: staggered card reveal, hover and press feedback, reduced motion respected. Chips support independent client-side toggles and hearts support client-side save toggles with `aria-pressed`.
-- Tooling: free OpenCode first. When its quota runs out, the fallback is Claude Code running Qwen3.8 27B (qwen3.8:27b; glm-4.7-flash:q8_0 is the faster alternative) from a Kaggle notebook through an ngrok tunnel: run the notebook cell, wait for "OLLAMA IS LIVE", then run `claude` in this folder. OmniRoute is no longer used. The Copilot assistant still does direct implementation and review. OpenCode has frontend-design and Vercel web-design-guidelines installed; HCI lessons were converted to Markdown outside the repo. Context7 MCP is installed in Claude Code for current library docs.
-- Done: Login password eye shows one icon and swaps on click. The hidden attribute does not hide an SVG by itself, so login-form.css now hides `.login-form__toggle-icon[hidden]`. Verified at 390px and 1280px with no horizontal overflow.
-- Login validation is quiet-first: fields only re-check while already showing an error, and a failed submit moves focus to the first invalid field (email first, then password).
-- Login error and status messages now fade down (opacity + small translateY) each time they appear, via a keyframe animation in login-form.css; zero-length under prefers-reduced-motion.
-- Login layout is full-bleed like the Figma: from 56rem the maroon panel and media half split the viewport evenly with no gap, border or radius; below 56rem the maroon panel fills the screen and the media is hidden. Form is centered and capped at 32rem, reveal animation kept. Verified at 390px and 1280px with no overflow.
-- Open items: Login hero media area is an empty fallback (no video or 3D hero chosen yet). Car photos are Pinterest placeholders with unknown source (replace or credit before a public deploy); bottom nav active item does not switch (needs router); favicon missing.
-- Next: outlined fields and a visible checkbox on Login.
+- Done: Home shell polished (header, category chips, 2-column cards with real photos, bottom nav with labels, card motion, client-side chip and heart toggles).
+- Done: Login matches the Figma split: full-bleed maroon form half and media half from 56rem, maroon panel full screen below it. Quiet-first validation focuses the first invalid field, messages fade down, the password toggle shows one icon. Verified at 390px and 1280px with no overflow.
+- Done: Login shows the logo image (assets/img/cars/gearshift-logo.png, 640x718, alt "GearShift") inside the h1 link, sized by --logo-width (11rem, height auto, max-width 100%); the old italic text logo rules are gone. Verified at 390px and 1280px with no overflow.
+- Done: Login fields are outlined on the maroon panel: transparent background, white text and border, white focus ring, red border kept for errors, and Chrome autofill stays readable through an inset surface-colored shadow (--autofill-cover). The password eye is white with a raised-maroon hover, and the checkbox is a custom 24px outlined box that fills white with a maroon check, still inside the 44px label target. Verified at 390px and 1280px in error, checked, focus and forced-autofill states with no overflow.
+- Next: wire the hero video into the Login media half (MP4 + WebM with the poster frame, muted, loop, playsinline, paused under prefers-reduced-motion). The media half is still an empty fallback.
+- Open problems: hero video source and licence are not recorded, and the car photos are Pinterest placeholders; both must be replaced or credited before a public deploy. Bottom nav active item does not switch (needs router). Favicon missing. login-interactions.js now plays a login-form-fade-out keyframe that does not exist yet, so error messages still hide without a fade.
+- Open items: login-hero GIF and Pinterest photos have unknown sources, ask Drixen before public deploy.
+- Tooling: OpenCode first, Kaggle Claude Code (qwen3.8:27b or glm-4.7-flash) only as last resort; one-search-mcp works for direct sources, DuckDuckGo search is rate-limited.
 
 ## Log
 - 2026-11-17 | header, chips, card, grid | 272fb99, 62fac39
@@ -88,6 +88,11 @@ Still missing in the Figma: Build detail page, brand page, search page.
 - 2026-11-20 | replaced pending hashes, one-search-mcp added | dfad661 | search tool for Claude Code only, not yet tested
 - 2026-11-21 | Login tokens --min-touch-target and --border-width | 6a9b949 | raw 44px and 2px replaced in Login CSS
 - 2026-11-21 | Login full-bleed split layout, card removed | 0bbc5ca | two equal halves from 56rem, maroon panel full-screen below it, reveal kept; verified at 390px and 1280px with no overflow
+- 2026-11-22 | Login media assets added | b8001b5 | gearshift-logo.png, login-hero-poster.jpg, login-hero.mp4 and login-hero.webm in assets/img/cars; nothing references them yet, hero licence not recorded
+- 2026-11-22 | docs: Current status and Log refreshed | pending | done/next/open problems rewritten for a fresh reader; next step is wiring the hero video into the Login media half
+- 2026-11-22 | docs: Screens Tooling Open items updated | pending | removed Google/Facebook buttons, added tooling note and open items
+- 2026-11-22 | Login logo image replaces the text logo | pending | img inside the h1 link, --logo-width 11rem in tokens, height auto and max-width 100%, italic text font rules removed; file is at assets/img/cars, not assets/; verified at 390px and 1280px with no overflow
+- 2026-11-22 | Login outlined fields, autofill, white eye, custom checkbox | pending | transparent fields with white text and border plus red error border, -webkit-autofill inset shadow using the new --autofill-cover 1000px token, eye white with --color-surface-raised hover, checkbox appearance none with an SVG check (check color is #2B0808 because a data URI cannot read a CSS variable), 44px label target kept; verified at 390px and 1280px in error, checked, focus and forced-autofill states
 
 ## Open questions for the friend
 - English or Taglish text?
